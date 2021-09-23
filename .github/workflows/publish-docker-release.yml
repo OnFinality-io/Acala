@@ -1,0 +1,57 @@
+name: Publish Docker image for new releases
+
+on:
+  push:
+    branches: [ workshop ]
+  pull_request:
+    branches: [ workshop ]
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      - name: Login to Dockerhub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Declare some variables
+        id: vars
+        shell: bash
+        run: |
+          echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+          echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+      - name: Build and push
+        id:   docker_build
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          file: scripts/Dockerfile
+          tags: |
+            onfinality/acala:${{ steps.vars.outputs.sha_short }}
+      - name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
+      - name: Update image verion of network spec 
+        uses: "OnFinality-io/action-onf-release@v1"
+        with:
+          onf-access-key: "${{ secrets.ONF_ACCESS_KEY }}"
+          onf-secret-key: "${{ secrets.ONF_SECRET_KEY }}"
+          onf-workspace-id: "6840477742517940224"
+          onf-network-key: e9b8d335-b651-41be-8497-909b030a7c8f 
+          onf-sub-command: image # node, image
+          onf-action: add # upgrade, add
+          image-version: ${{ steps.vars.outputs.sha_short }}
+      - name: Update node's image verion 
+        uses: "OnFinality-io/action-onf-release@v1"
+        with:
+          onf-access-key: "${{ secrets.ONF_ACCESS_KEY }}"
+          onf-secret-key: "${{ secrets.ONF_SECRET_KEY }}"
+          onf-workspace-id: "6840477742517940224"
+          onf-network-key: e9b8d335-b651-41be-8497-909b030a7c8f 
+          onf-sub-command: node # node, image
+          onf-action: upgrade # upgrade, add
+          image-version: ${{ steps.vars.outputs.sha_short }}
+          percent: 30
