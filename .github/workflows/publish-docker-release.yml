@@ -40,7 +40,7 @@ jobs:
           onf-access-key: "${{ secrets.ONF_ACCESS_KEY }}"
           onf-secret-key: "${{ secrets.ONF_SECRET_KEY }}"
           onf-workspace-id: "6840477742517940224"
-          onf-network-key: e9b8d335-b651-41be-8497-909b030a7c8f 
+          onf-network-key: 941f8de4-fec8-4b96-9655-fd90850b30cc 
           onf-sub-command: image # node, image
           onf-action: add # upgrade, add
           image-version: ${{ steps.vars.outputs.sha_short }}
@@ -50,7 +50,7 @@ jobs:
           onf-access-key: "${{ secrets.ONF_ACCESS_KEY }}"
           onf-secret-key: "${{ secrets.ONF_SECRET_KEY }}"
           onf-workspace-id: "6840477742517940224"
-          onf-network-key: e9b8d335-b651-41be-8497-909b030a7c8f 
+          onf-network-key: 941f8de4-fec8-4b96-9655-fd90850b30cc 
           onf-sub-command: node # node, image
           onf-action: upgrade # upgrade, add
           image-version: ${{ steps.vars.outputs.sha_short }}
