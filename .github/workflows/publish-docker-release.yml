@@ -44,8 +44,8 @@ jobs:
       
         uses: "OnFinality-io/action-onf-release@v1"
         with:
-          onf-access-key: "${{ secrets.ONF_ACCESS_KEY }}"
-          onf-secret-key: "${{ secrets.ONF_SECRET_KEY }}"
+          onf-access-key: "gAuUEFx1NTWBt22uUHcrgzJYJ9rs70oj"
+          onf-secret-key: "oOn+MYnk0ZUYGPjq1w6DhWBUhVYRHBc96J8brAfc"
           onf-workspace-id: "6683212593101979648"
           onf-network-key: 6cfd4157-75f5-4eca-a6fa-a57ec176f217 
           onf-sub-command: image # node, image
@@ -55,8 +55,8 @@ jobs:
       - name: Perform a rolling update to all nodes
         uses: "OnFinality-io/action-onf-release@v1"
         with:
-          onf-access-key: "${{ secrets.ONF_ACCESS_KEY }}"
-          onf-secret-key: "${{ secrets.ONF_SECRET_KEY }}"
+          onf-access-key: "gAuUEFx1NTWBt22uUHcrgzJYJ9rs70oj"
+          onf-secret-key: "oOn+MYnk0ZUYGPjq1w6DhWBUhVYRHBc96J8brAfc"
           onf-workspace-id: "6683212593101979648"
           onf-network-key: 6cfd4157-75f5-4eca-a6fa-a57ec176f217 
           onf-sub-command: node # node, image
