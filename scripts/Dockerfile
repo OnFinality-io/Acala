@@ -30,7 +30,8 @@ RUN cargo +nightly build --release --features with-karura-runtime
 
 # =============
 
-# FROM phusion/baseimage:bionic-1.0. debian:buster-slim
+# FROM phusion/baseimage:bionic-1.0. 
+FROM debian:buster-slim
 LABEL maintainer="hello@acala.network"
 
 # RUN mv /usr/share/ca* /tmp && \
