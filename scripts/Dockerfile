@@ -17,7 +17,7 @@
 # # RUN cargo build --release $BUILD_ARGS
 # RUN cargo build --release --features with-karura-runtime
 
-FROM paritytech/ci-linux:production as builder
+FROM paritytech/ci-linux:9575dfcd-20210729 as builder
 LABEL description="This is the build stage for Polkadot. Here we create the binary."
 
 WORKDIR /app
@@ -30,8 +30,7 @@ RUN cargo +nightly build --release --features with-karura-runtime
 
 # =============
 
-# FROM phusion/baseimage:bionic-1.0.0
-FROM debian:buster-slim
+# FROM phusion/baseimage:bionic-1.0. debian:buster-slim
 LABEL maintainer="hello@acala.network"
 
 # RUN mv /usr/share/ca* /tmp && \
