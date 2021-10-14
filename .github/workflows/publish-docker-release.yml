@@ -44,10 +44,10 @@ jobs:
       
         uses: "OnFinality-io/action-onf-release@v1"
         with:
-          onf-access-key: "gAuUEFx1NTWBt22uUHcrgzJYJ9rs70oj"
-          onf-secret-key: "oOn+MYnk0ZUYGPjq1w6DhWBUhVYRHBc96J8brAfc"
+          onf-access-key: "THc4hqtMNPVgLZwXtjO2PJQDkKETFpYA"
+          onf-secret-key: "KhD6kp3Y3KejNeP3DH+sMTT4od20oUC0UCB0U6dk"
           onf-workspace-id: "6683212593101979648"
-          onf-network-key: 6cfd4157-75f5-4eca-a6fa-a57ec176f217 
+          onf-network-key: b27bcdd4-fee0-44a2-9dae-62006051ef48 
           onf-sub-command: image # node, image
           onf-action: add # upgrade, add
           image-version: ${{ steps.vars.outputs.sha_short }}
@@ -55,10 +55,10 @@ jobs:
       - name: Perform a rolling update to all nodes
         uses: "OnFinality-io/action-onf-release@v1"
         with:
-          onf-access-key: "gAuUEFx1NTWBt22uUHcrgzJYJ9rs70oj"
-          onf-secret-key: "oOn+MYnk0ZUYGPjq1w6DhWBUhVYRHBc96J8brAfc"
+          onf-access-key: "THc4hqtMNPVgLZwXtjO2PJQDkKETFpYA"
+          onf-secret-key: "KhD6kp3Y3KejNeP3DH+sMTT4od20oUC0UCB0U6dk"
           onf-workspace-id: "6683212593101979648"
-          onf-network-key: 6cfd4157-75f5-4eca-a6fa-a57ec176f217 
+          onf-network-key: b27bcdd4-fee0-44a2-9dae-62006051ef48 
           onf-sub-command: node # node, image
           onf-action: upgrade # upgrade, add
           image-version: ${{ steps.vars.outputs.sha_short }}
